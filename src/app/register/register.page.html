@@ -6,11 +6,21 @@
   <form (submit)="register()">
     <div>
       <ion-item>
-        <ion-input label="Email input" type="email" [(ngModel)]="usuario" name="usuario" placeholder="email@domain.com"></ion-input>
+        <ion-input 
+          label="Email input" 
+          type="email" 
+          [(ngModel)]="usuario" 
+          name="usuario" 
+          placeholder="email@domain.com">
+        </ion-input>
       </ion-item>
   
       <ion-item class="ion-margin-top">
-        <ion-input type="password" label="Password" [(ngModel)]="usuariopassword" name="usuariopassword">
+        <ion-input 
+          type="password" 
+          label="Password" 
+          [(ngModel)]="usuariopassword" 
+          name="usuariopassword">
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
       </ion-item>
@@ -20,15 +30,13 @@
   </form>
 
   <div class="version-info">
-    <span>
-      Versión 1.0.0
-    </span>
+    <span>Versión 1.0.0</span>
   </div>
 </div>
 
 <ion-toast
     [isOpen]="isToastOpen"
-    message="Credenciales incorrectas"
+    message="Error al registrar"
     [duration]="5000"
-    (didDismiss)="isToastOpen = false"
-  ></ion-toast>
+    (didDismiss)="isToastOpen = false">
+</ion-toast>

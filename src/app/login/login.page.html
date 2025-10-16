@@ -1,34 +1,49 @@
+<!-- Botón de Registrarse en la parte superior derecha -->
+<div style="position: absolute; top: 20px; right: 20px;">
+  <ion-button size="small" (click)="register()" fill="clear">Registrarse</ion-button>
+</div>
+
 <div class="login-container">
   <div class="logo-container">
     <img src="../../assets/img/image.png" alt="Logo" class="logo-img" />
   </div>
 
-  <form (submit)="login()">
-    <div>
-      <ion-item>
-        <ion-input label="Email input" type="email" [(ngModel)]="email" name="email" placeholder="email@domain.com"></ion-input>
-      </ion-item>
-  
-      <ion-item class="ion-margin-top">
-        <ion-input type="password" label="Password" [(ngModel)]="password" name="password" >
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-        </ion-input>
-      </ion-item>
-    </div>
+  <!-- FORMULARIO CORRECTAMENTE CONFIGURADO -->
+  <form (ngSubmit)="login()">
+    <ion-item>
+      <ion-input 
+        type="email" 
+        [(ngModel)]="email" 
+        name="email"
+        placeholder="email@domain.com"
+        required
+        label="Correo">
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-input 
+        type="password" 
+        [(ngModel)]="password" 
+        name="password"
+        required
+        label="Contraseña">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
 
     <ion-button expand="block" type="submit">Iniciar sesión</ion-button>
   </form>
 
   <div class="version-info">
-    <span>
-      Versión 1.0.0
-    </span>
+    <span>Versión 1.0.0</span>
   </div>
 </div>
 
+<!-- TOAST DE ERROR -->
 <ion-toast
-    [isOpen]="isToastOpen"
-    message="Credenciales incorrectas"
-    [duration]="5000"
-    (didDismiss)="isToastOpen = true"
-  ></ion-toast>
+  [isOpen]="isToastOpen"
+  message="Credenciales incorrectas"
+  [duration]="5000"
+  (didDismiss)="isToastOpen = false">
+</ion-toast>

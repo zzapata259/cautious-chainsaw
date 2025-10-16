@@ -1,0 +1,145 @@
+<!-- Afternoon_Exercises_Ionic.html
+Ionic-friendly HTML page with afternoon-friendly exercises, relaxing and mobility-focused.
+No machines, no weights. Complements healthy meals with proteins or light snacks.
+-->
+
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Rutina de la tarde — Sin pesas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="8" offset-md="2">
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Movilidad y energía 🌇</ion-card-title>
+            <ion-card-subtitle>Ejercicios ligeros para activar tu cuerpo en la tarde</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Ideales después de trabajar o estudiar: baja intensidad, enfoque en movilidad y energía estable. Haz 1–2 rondas completas.</p>
+            <ion-chip>
+              <ion-icon name="time-outline"></ion-icon>
+              <ion-label>Duración: 10–20 min</ion-label>
+            </ion-chip>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Ejercicios -->
+        <ion-list>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="walk-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>1. Caminata ligera o marcha en sitio</h2>
+              <p>3 min para reactivar circulación y oxigenar</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="sync-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>2. Estiramientos dinámicos de brazos</h2>
+              <p>1 min: círculos de hombros, apertura y cierre de brazos</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="footsteps-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>3. Elevaciones de talones (gemelos)</h2>
+              <p>20 repeticiones — fortalece y activa piernas</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="extension-puzzle-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>4. Estiramiento gato–camello</h2>
+              <p>6–8 repeticiones — movilidad de columna, relajación lumbar</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="accessibility-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>5. Puente de glúteos</h2>
+              <p>10–12 repeticiones, activa cadera y espalda baja</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="trending-up-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>6. Respiración diafragmática</h2>
+              <p>2–3 min — inhalar profundo por nariz, exhalar lento por boca</p>
+            </ion-label>
+          </ion-item>
+
+        </ion-list>
+
+        <!-- Nutrición -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Consejos nutricionales de la tarde</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="none">
+              <ion-item>
+                <ion-icon slot="start" name="nutrition-outline"></ion-icon>
+                <ion-label>
+                  <h3>Snack proteico</h3>
+                  <p>Yogur natural con frutas, frutos secos o una barrita de proteína.</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon slot="start" name="water-outline"></ion-icon>
+                <ion-label>
+                  <h3>Hidratación constante</h3>
+                  <p>Agua o infusiones sin azúcar para mantener energía sin sobrecargar.</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon slot="start" name="flame-outline"></ion-icon>
+                <ion-label>
+                  <h3>Evita exceso de cafeína</h3>
+                  <p>Prefiere té verde o matcha si necesitas foco, en vez de café tarde.</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+        <div style="display:flex; gap:8px; margin-top:12px;">
+          <ion-button expand="block" color="success" size="small" style="width: 160px;">Comenzar estiramientos</ion-button>
+          <ion-button expand="block" color="medium" size="small" style="width: 160px;">Reiniciar</ion-button>
+          <ion-button expand="block" color="primary" size="small" style="width: 160px;" routerLink="/home">
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+            Ir a Home
+          </ion-button>
+        </div>
+
+        <ion-note style="display:block; margin-top:12px; font-size:0.9rem;">Haz los movimientos suaves, controla la respiración y acompáñalos de un snack ligero para mantener energía.</ion-note>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

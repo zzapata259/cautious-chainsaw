@@ -5,13 +5,10 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
-  {
-    path: 'home2',
-    loadComponent: () => import('./home2/home2.page').then((m) => m.Home2Page),
-  },
+
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -28,7 +25,25 @@ export const routes: Routes = [
   },
   
   {
-    path: 'personaje-detalles',
-    loadComponent: () => import('./personaje-detalles/personaje-detalles.page').then( m => m.PersonajeDetallesPage)
+    path: 'ejercicios-dia',
+    loadComponent: () => import('./ejercicios-dia/ejercicios-dia.page').then( m => m.EjerciciosDiaPage)
   },
+  {
+    path: 'ejercicios-tarde',
+    loadComponent: () => import('./ejercicios-tarde/ejercicios-tarde.page').then( m => m.EjerciciosTardePage)
+  },
+  {
+    path: 'ejercicios-noche',
+    loadComponent: () => import('./ejercicios-noche/ejercicios-noche.page').then( m => m.EjerciciosNochePage)
+  },
+  {
+    path: 'barrita',
+    loadComponent: () => import('./barrita/barrita.page').then( m => m.BarritaPage)
+  },
+  {
+    path: 'carrito',
+    loadComponent: () => import('./carrito/carrito.page').then( m => m.CarritoPage)
+  },
+
+
 ];

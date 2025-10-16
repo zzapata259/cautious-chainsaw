@@ -26,8 +26,7 @@ export class RegisterPage implements OnInit {
     localStorage.setItem("usuario",this.usuario);
     localStorage.setItem("usuariopassword",this.usuariopassword);
 
-    console.log(this.usuario);
-    console.log(this.usuariopassword);
+
     this.router.navigateByUrl("/login");
   }
 }

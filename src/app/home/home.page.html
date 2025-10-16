@@ -1,41 +1,49 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
+<!-- Menú lateral -->
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Menu Content</ion-title>
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
-    <!-- Sección: Wiki de Naruto -->
+
+
+
+
+  <ion-content class="ion-padding">
+    <!-- Wiki -->
     <ion-list>
-      <ion-list-header>Wiki de Naruto</ion-list-header>
-      <ion-item routerLink="/home2">
+      <ion-list-header>Wiki de Ejercicios</ion-list-header>
+      <ion-item routerLink="/ejercicios-dia">
         <ion-icon name="people-outline" slot="start"></ion-icon>
-        <ion-label>Personajes</ion-label>
+        <ion-label>Ejercicios día</ion-label>
       </ion-item>
-      <ion-item routerLink="/jutsus">
+      <ion-item routerLink="/ejercicios-tarde">
         <ion-icon name="flash-outline" slot="start"></ion-icon>
-        <ion-label>Jutsus</ion-label>
+        <ion-label>Ejercicios tarde</ion-label>
       </ion-item>
-      <ion-item routerLink="/clanes">
-        <ion-icon name="shield-outline" slot="start"></ion-icon>
-        <ion-label>Clanes</ion-label>
+      <ion-item routerLink="/ejercicios-noche">
+        <ion-icon name="moon-outline" slot="start"></ion-icon>
+        <ion-label>Ejercicios noche</ion-label>
       </ion-item>
     </ion-list>
 
-    <!-- Sección: Tienda -->
+
+
+
+    <!-- Tienda -->
     <ion-list>
       <ion-list-header>Tienda</ion-list-header>
-      <ion-item routerLink="/figuritas">
+      <ion-item routerLink="/barrita">
         <ion-icon name="cart-outline" slot="start"></ion-icon>
-        <ion-label>Figuritas</ion-label>
+        <ion-label>Barritas</ion-label>
       </ion-item>
       <ion-item routerLink="/ofertas">
         <ion-icon name="pricetags-outline" slot="start"></ion-icon>
@@ -49,21 +57,33 @@
 
 
 
-
-
-
-
-
-
+    <!-- Función útil: Cerrar sesión -->
+    <ion-list>
+      <ion-item button (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Cerrar sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-menu>
+
+
+
+<!-- Contenido principal -->
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Menu</ion-title>
+      <ion-title>Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+
+
+  
+  <ion-content class="ion-padding">
+    <h2>Bienvenido 👋</h2>
+    <p>Desde aquí podrás acceder a tus ejercicios, la tienda y pronto las noticias.</p>
+  </ion-content>
 </div>

@@ -1,0 +1,231 @@
+<!-- Morning_Exercises_Ionic.html
+Ionic-friendly HTML page (template) with pleasant components listing morning bodyweight exercises
+No machines, no weights. Includes nutrition/supplement tips.
+This file is a standalone HTML-like template using Ionic components.
+-->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Rutina matutina — Sin pesas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" aria-label="info" id="toggleInfoBtn">
+        <ion-icon name="information-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="8" offset-md="2">
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Buenos días ☀️</ion-card-title>
+            <ion-card-subtitle>Rutina corta, eficaz y saludable para acompañar con proteínas o suplementos</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Realiza esta secuencia como circuito: haz cada ejercicio durante el tiempo indicado, descansa 30s entre ejercicios y repite 2–3 rondas.</p>
+            <ion-chip>
+              <ion-icon name="time-outline"></ion-icon>
+              <ion-label>Duración: 15–25 min</ion-label>
+            </ion-chip>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Ejercicios -->
+        <ion-list>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="run-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>1. Calentamiento dinámico</h2>
+              <p>3–5 min: marchar en el lugar, rotaciones de hombros, movilidad de cadera</p>
+            </ion-label>
+            <ion-button slot="end" fill="outline" size="small" data-target="warmup">Ver</ion-button>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="body-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>2. Sentadillas (Squats)</h2>
+              <p>45s trabajo / 15s descanso — Mantén pecho arriba y rodillas alineadas</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" size="small" onclick="toggleDone(this)">✔️</ion-button>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>3. Flexiones modificadas (Push-ups)</h2>
+              <p>30s trabajo / 15s descanso — Rodillas en el suelo si necesitas menos carga</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" size="small" onclick="toggleDone(this)">✔️</ion-button>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="umbrella-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>4. Zancadas alternas (Lunges)</h2>
+              <p>40s trabajo / 20s descanso — Paso controlado, alterna piernas</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" size="small" onclick="toggleDone(this)">✔️</ion-button>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="fitness-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>5. Plank (Plancha)</h2>
+              <p>30–45s — Mantén la cadera alineada, respira profundamente</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" size="small" onclick="toggleDone(this)">✔️</ion-button>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="repeat-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>6. Puente de glúteos (Glute bridge)</h2>
+              <p>45s trabajo — Aprieta arriba, baja controlado</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" size="small" onclick="toggleDone(this)">✔️</ion-button>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-avatar slot="start">
+              <ion-icon name="body-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h2>7. Bird-Dog</h2>
+              <p>30s por lado — Mejora estabilidad y postura</p>
+            </ion-label>
+            <ion-button slot="end" fill="clear" size="small" onclick="toggleDone(this)">✔️</ion-button>
+          </ion-item>
+
+        </ion-list>
+
+        <!-- Nutritional tips card -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Consejos nutricionales</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="none">
+              <ion-item>
+                <ion-icon slot="start" name="nutrition-outline"></ion-icon>
+                <ion-label>
+                  <h3>Desayuno rico en proteínas</h3>
+                  <p>Huevos revueltos, yogur griego, avena con proteína en polvo o un batido post-entreno.</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon slot="start" name="leaf-outline"></ion-icon>
+                <ion-label>
+                  <h3>Hidratación</h3>
+                  <p>Agua al despertar y durante la rutina. Puedes añadir una pizca de sal marina o electrolitos si sudas mucho.</p>
+                </ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon slot="start" name="cafe-outline"></ion-icon>
+                <ion-label>
+                  <h3>Suplementos opcionales</h3>
+                  <p>Proteína en polvo (whey o vegetal) post-entreno, creatina para fuerza, y/o un multivitamínico según necesidad.</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Action buttons -->
+        <div style="display:flex; gap:8px; margin-top:12px;">
+          <ion-button expand="block" color="success" size="small" style="width: 160px;">Comenzar estiramientos</ion-button>
+          <ion-button expand="block" color="medium" size="small" style="width: 160px;">Reiniciar</ion-button>
+          <ion-button expand="block" color="primary" size="small" style="width: 160px;" routerLink="/home">
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+            Ir a Home
+          </ion-button>
+        </div>
+
+        <ion-note style="display:block; margin-top:12px; font-size:0.9rem;">Recuerda calentar antes y estirar al finalizar. Consulta con un profesional si tienes lesiones o condiciones médicas.</ion-note>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Info modal (simple emulation) -->
+  <div id="infoModal" role="dialog" aria-hidden="true" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4);">
+    <div style="max-width:520px; margin:6% auto; background:white; padding:18px; border-radius:12px;">
+      <h3>Cómo usar</h3>
+      <p>Sigue el circuito: completa cada ejercicio durante el tiempo recomendado. Si necesitas menos intensidad, reduce segundos o repeticiones.</p>
+      <ion-button id="closeInfo" expand="block">Cerrar</ion-button>
+    </div>
+  </div>
+
+</ion-content>
+
+<!-- Pequeña lógica para toggles y temporizador (vanilla JS para mostrar idea) -->
+<script>
+  // Toggle "done" state visual
+  function toggleDone(btn) {
+    const item = btn.closest('ion-item');
+    if (!item) return;
+    if (item.style.opacity === '0.5') {
+      item.style.opacity = '1';
+      btn.textContent = '✔️';
+    } else {
+      item.style.opacity = '0.5';
+      btn.textContent = '↺';
+    }
+  }
+
+  // Simple timer demo (no framework timer)
+  let timer = null;
+  document.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'startBtn') {
+      if (timer) return; // ya iniciado
+      let seconds = 30; // tiempo por ejercicio (ejemplo)
+      e.target.textContent = '00:' + seconds;
+      timer = setInterval(() => {
+        seconds -= 1;
+        if (seconds < 10) e.target.textContent = '00:0' + seconds;
+        else e.target.textContent = '00:' + seconds;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          timer = null;
+          e.target.textContent = 'Iniciar temporizador';
+          navigator.vibrate && navigator.vibrate(200);
+        }
+      }, 1000);
+    }
+
+    if (e.target && e.target.id === 'resetBtn') {
+      clearInterval(timer);
+      timer = null;
+      document.getElementById('startBtn').textContent = 'Iniciar temporizador';
+    }
+
+    if (e.target && e.target.id === 'toggleInfoBtn') {
+      document.getElementById('infoModal').style.display = 'block';
+      document.getElementById('infoModal').setAttribute('aria-hidden', 'false');
+    }
+
+    if (e.target && e.target.id === 'closeInfo') {
+      document.getElementById('infoModal').style.display = 'none';
+      document.getElementById('infoModal').setAttribute('aria-hidden', 'true');
+    }
+  });
+</script>
