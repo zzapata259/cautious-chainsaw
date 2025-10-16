@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { IonHeader,IonToolbar,IonTitle,IonContent,IonMenuButton,IonMenu,IonButtons,IonLabel, IonIcon,IonList,IonItem,IonListHeader,IonButton,
 IonGrid,IonRow,IonCol,IonCard,IonCardHeader,IonCardTitle,IonCardSubtitle,IonCardContent,IonChip, IonAvatar,IonNote,} from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
+import { Database } from 'src/app/services/database';
+
 
 interface Barrita {
   id: number;
@@ -84,7 +86,13 @@ export class BarritaPage {
 
   carrito: Barrita[] = [];
 
-  constructor(private toastCtrl: ToastController) {}
+  constructor(private toastCtrl: ToastController, private database : Database) {}
+
+  async inicializarBD() {
+    await this.database.insertarUsuario();
+    this.usuarios = await this.database.obtenerUsuarios();
+  }
+
 
   async agregarAlCarrito(barrita: Barrita) {
     this.carrito.push(barrita);

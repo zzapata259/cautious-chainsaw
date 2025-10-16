@@ -22,7 +22,7 @@ export class Database {
 
       console.log("Base de datos creada");
   
-      await this.db.executeSql(npm install -g @ionic/cli
+      await this.db.executeSql(
 
         'CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, email TEXT, password TEXT)', []
       );
