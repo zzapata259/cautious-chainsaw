@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Administrar Barritas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let barrita of barritas">
+      <ion-label>
+        <h2>{{ barrita.nombre }}</h2>
+        <p>{{ barrita.descripcion }}</p>
+      </ion-label>
+      <!-- Aquí puedes agregar botones para editar o eliminar -->
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-input placeholder="Nombre" [(ngModel)]="nuevaBarrita.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Descripción" [(ngModel)]="nuevaBarrita.descripcion"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" placeholder="Precio" [(ngModel)]="nuevaBarrita.precio"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="URL imagen (opcional)" [(ngModel)]="nuevaBarrita.imagen"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="insertarBarrita()">Insertar Barrita</ion-button>
+</ion-content>

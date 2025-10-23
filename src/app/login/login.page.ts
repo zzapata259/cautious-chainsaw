@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonToast, IonItem, IonButton, IonInputPasswordToggle, IonInput, createAnimation } from '@ionic/angular/standalone';
+import { IonToast, IonItem, IonButton, IonInputPasswordToggle, IonInput , createAnimation } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 
 @Component({

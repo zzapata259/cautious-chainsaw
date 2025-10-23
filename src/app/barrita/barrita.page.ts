@@ -5,16 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonHeader,IonToolbar,IonTitle,IonContent,IonMenuButton,IonMenu,IonButtons,IonLabel, IonIcon,IonList,IonItem,IonListHeader,IonButton,
 IonGrid,IonRow,IonCol,IonCard,IonCardHeader,IonCardTitle,IonCardSubtitle,IonCardContent,IonChip, IonAvatar,IonNote,} from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
-import { Database } from 'src/app/services/database';
-
-
-interface Barrita {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  precio: number;
-  imagen: string;
-}
+import { Barrita, Database } from 'src/app/services/database';
 
 @Component({
   selector: 'app-barrita',
@@ -53,46 +44,28 @@ interface Barrita {
   ],
 })
 export class BarritaPage {
-  barritas: Barrita[] = [
-    {
-      id: 1,
-      nombre: 'Barrita Power Choco',
-      descripcion: 'Deliciosa barrita de chocolate con 20g de proteína whey.',
-      precio: 2500,
-      imagen: 'assets/img/power-choco.png'
-    },
-    {
-      id: 2,
-      nombre: 'Barrita Fit Vainilla',
-      descripcion: 'Barrita ligera sabor vainilla con 18g de proteína vegetal.',
-      precio: 2200,
-      imagen: 'assets/img/fit-vainilla.png'
-    },
-    {
-      id: 3,
-      nombre: 'Barrita Berry Boost',
-      descripcion: 'Energía natural con frutos rojos y 15g de proteína.',
-      precio: 2800,
-      imagen: 'assets/img/berry-boost.png'
-    },
-    {
-      id: 4,
-      nombre: 'Barrita Coco Crunch',
-      descripcion: 'Crujiente barrita sabor coco con 21g de proteína aislada.',
-      precio: 3000,
-      imagen: 'assets/img/coco-crunch.png'
-    }
-  ];
-
+   // 🟢 Variables
+  barritas: Barrita[] = [];
   carrito: Barrita[] = [];
 
-  constructor(private toastCtrl: ToastController, private database : Database) {}
-
-  async inicializarBD() {
-    await this.database.insertarUsuario();
-    this.usuarios = await this.database.obtenerUsuarios();
+  constructor(private toastCtrl: ToastController, private database : Database) {
+    this.inicializarBD();
+    this.obtenerTodasBarritas();
+  }
+  // 🔹 Obtiene las barritas desde la BD
+  async obtenerTodasBarritas() {
+    this.barritas = await this.database.obtenerTodasBarritas();
+    console.log('📦 Barritas cargadas:', this.barritas);
   }
 
+  // 🧩 Cuando se carga la página
+  async ngOnInit() {
+    await this.obtenerTodasBarritas();
+  }
+
+  async inicializarBD() {
+    this.barritas = await this.database.obtenerBarritas();
+  }
 
   async agregarAlCarrito(barrita: Barrita) {
     this.carrito.push(barrita);
