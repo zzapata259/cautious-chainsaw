@@ -9,12 +9,18 @@ export interface Post {
   body: string;
 }
 
+export interface SaludoGif {
+  mensaje: string;
+  gif: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
-export class Post {
+export class PostService {  // ✅ cambio de nombre aquí
 
   private urlApi = "https://jsonplaceholder.typicode.com/posts";
+  private urlSaludo = "https://demo8984564.mockable.io/saludoGif"; // ✅ usa HTTPS
 
   constructor(private httpClient: HttpClient) {}
 
@@ -22,6 +28,7 @@ export class Post {
     return this.httpClient.get<Post[]>(this.urlApi);
   }
 
-  //definir la llamada al servicio
-  //definir la interface que van a usar
+  getSaludoGif(): Observable<SaludoGif> {
+    return this.httpClient.get<SaludoGif>(this.urlSaludo);
+  }
 }

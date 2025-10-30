@@ -1,32 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar,IonButton,IonToast, IonItem, IonInputPasswordToggle } from '@ionic/angular/standalone';
+import { IonButton, IonInput, IonItem, IonToast } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { DatabaseUsuario } from '../services/databaseusuario';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonToast, IonItem, IonInputPasswordToggle]
+  imports: [CommonModule, FormsModule, IonItem, IonInput, IonButton, IonToast]
 })
 export class RegisterPage implements OnInit {
 
-  usuario: string = '';
-  usuariopassword: string = '';
-  isToastOpen: Boolean = false;
+  correo: string = '';
+  password: string = '';
+  isToastOpen: boolean = false;
+  toastMessage: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private dbService: DatabaseUsuario,
+    private router: Router
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.dbService.crearBDUsuario();
   }
 
-  register() {
-    localStorage.setItem("usuario",this.usuario);
-    localStorage.setItem("usuariopassword",this.usuariopassword);
+  async register() {
+    if (!this.correo || !this.password) {
+      this.toastMessage = 'Debe llenar todos los campos';
+      this.isToastOpen = true;
+      return;
+    }
 
+    try {
+      await this.dbService.insertarUsuario({
+        id: 0, // SQLite autoincrementa
+        correo: this.correo,
+        password: this.password
+      });
 
-    this.router.navigateByUrl("/login");
+      this.toastMessage = 'Usuario registrado con éxito';
+      this.isToastOpen = true;
+
+      setTimeout(() => {
+        this.router.navigateByUrl('/login');
+      }, 1500);
+
+    } catch (e) {
+      this.toastMessage = 'Error al registrar usuario (correo duplicado?)';
+      this.isToastOpen = true;
+    }
   }
 }

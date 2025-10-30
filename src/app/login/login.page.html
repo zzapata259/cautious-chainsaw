@@ -1,4 +1,3 @@
-<!-- Botón de Registrarse en la parte superior derecha -->
 <div style="position: absolute; top: 20px; right: 20px;">
   <ion-button size="small" (click)="register()" fill="clear">Registrarse</ion-button>
 </div>
@@ -8,31 +7,28 @@
     <img src="../../assets/img/image.png" alt="Logo" class="logo-img" />
   </div>
 
-  <!-- FORMULARIO CORRECTAMENTE CONFIGURADO -->
   <form (ngSubmit)="login($event)">
-    <ion-item>
-      <ion-input 
-        type="email" 
-        [(ngModel)]="email" 
+    <ion-item #emailInputItem>
+      <ion-input
+        type="email"
+        [(ngModel)]="email"
         name="email"
-        placeholder="email@domain.com"
-        required
-        label="Correo">
+        placeholder="correo@dominio.com"
+        required>
       </ion-input>
     </ion-item>
 
-    <ion-item class="ion-margin-top">
-      <ion-input 
-        type="password" 
-        [(ngModel)]="password" 
+    <ion-item class="ion-margin-top" #passwordInputItem>
+      <ion-input
+        type="password"
+        [(ngModel)]="password"
         name="password"
-        required
-        label="Contraseña">
+        required>
         <ion-input-password-toggle slot="end"></ion-input-password-toggle>
       </ion-input>
     </ion-item>
 
-    <ion-button expand="block" type="submit">Iniciar sesión</ion-button>
+    <ion-button expand="block" type="submit" class="ion-margin-top">Iniciar sesión</ion-button>
   </form>
 
   <div class="version-info">
@@ -40,10 +36,9 @@
   </div>
 </div>
 
-<!-- TOAST DE ERROR -->
 <ion-toast
   [isOpen]="isToastOpen"
-  message="Credenciales incorrectas"
-  [duration]="5000"
+  [message]="toastMessage"
+  [duration]="3000"
   (didDismiss)="isToastOpen = false">
 </ion-toast>

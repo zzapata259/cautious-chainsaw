@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { guardGuard } from './auth/guard-guard';
 
 export const routes: Routes = [
   {
@@ -8,7 +9,7 @@ export const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -16,9 +17,11 @@ export const routes: Routes = [
     loadComponent: () => import('./contacto/contacto.page').then( m => m.ContactoPage)
   },
   {
-    path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
-  },
+  path: 'login',
+  loadComponent: () => import('./login/login.page').then(m => m.LoginPage),
+  canActivate: [guardGuard]  // <--- aquí
+},
+
   {
     path: 'register',
     loadComponent: () => import('./register/register.page').then( m => m.RegisterPage)
@@ -43,7 +46,8 @@ export const routes: Routes = [
   {
     path: 'carrito',
     loadComponent: () => import('./carrito/carrito.page').then( m => m.CarritoPage)
-  },  {
+  },
+  {
     path: 'admin-barritas',
     loadComponent: () => import('./barrita/admin-barritas/admin-barritas.page').then( m => m.AdminBarritasPage)
   },

@@ -2,9 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonHeader,IonToolbar,IonTitle,IonContent,IonMenuButton,IonMenu,IonButtons,IonLabel, IonIcon,IonList,IonItem,IonListHeader,IonButton,
-IonGrid,IonRow,IonCol,IonCard,IonCardHeader,IonCardTitle,IonCardSubtitle,IonCardContent,IonChip, IonAvatar,IonNote,IonThumbnail,} from '@ionic/angular/standalone';
+import {
+  IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonMenu, IonButtons,
+  IonLabel, IonIcon, IonList, IonItem, IonListHeader, IonButton,
+  IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent,
+  IonChip, IonAvatar, IonNote, IonThumbnail
+} from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
+import { DatabaseCompra, Compra } from '../services/databasecompra'; // Ajusta la ruta según tu proyecto
 
 interface Producto {
   nombre: string;
@@ -22,7 +27,6 @@ interface Producto {
     CommonModule,
     FormsModule,
     RouterModule,
-    // Ionic components
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -53,9 +57,10 @@ interface Producto {
 export class CarritoPage implements OnInit {
   carrito: Producto[] = [];
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController, private dbCompra: DatabaseCompra) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.dbCompra.crearBD(); // inicializa la base de datos
     this.cargarCarrito();
   }
 
@@ -80,5 +85,21 @@ export class CarritoPage implements OnInit {
   irAPago() {
     this.navCtrl.navigateForward('/pago');
   }
-}
 
+  // ✅ Nuevo método para guardar compras en la base de datos
+  async guardarCompras() {
+    for (const producto of this.carrito) {
+      const compra: Compra = {
+        nombre: producto.nombre,
+        descripcion: producto.descripcion,
+        precio: producto.precio,
+        imagen: producto.imagen
+      };
+      await this.dbCompra.insertarCompra(compra);
+    }
+    // Limpiamos el carrito después de guardar
+    this.carrito = [];
+    localStorage.removeItem('carrito');
+    alert('Compras guardadas en la base de datos con éxito ✅');
+  }
+}
