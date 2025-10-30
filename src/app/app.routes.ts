@@ -47,6 +47,10 @@ export const routes: Routes = [
     path: 'admin-barritas',
     loadComponent: () => import('./barrita/admin-barritas/admin-barritas.page').then( m => m.AdminBarritasPage)
   },
+  {
+    path: 'camara',
+    loadComponent: () => import('./camara/camara.page').then( m => m.CamaraPage)
+  },
 
 
 
